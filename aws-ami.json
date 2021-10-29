@@ -1,0 +1,41 @@
+{
+    "variables":{
+        "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+        "aws_secret_access_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+        "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}"
+    },
+    "builders":[
+        {
+            "type": "amazon-ebs",
+            "access_key": "{{user `aws_access_key`}}",
+            "secret_key": "{{user `aws_secret_access_key`}}",
+            "token": "{{user `aws_session_token`}}",
+            "region": "us-east-1",
+            "source_ami": "ami-09e67e426f25ce0d7",
+            "instance_type": "t2.micro",
+            "source_ami_filter": {
+                "owners":["amazon"],
+                "most_recent": true
+            },
+            "ssh_username": "ubuntu",
+            "ami_name": "packer-test {{timestamp}}"
+        }
+    ],
+    "provisioners":[
+        {
+            "type": "file",
+            "source": "./scripts/packer-key.pub",
+            "destination": "~/.ssh"
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "cat ~/.ssh/packer-key.pub >> ~/.ssh/authorized_keys"
+            ]
+        },
+        {
+            "type": "shell",
+            "script": "./scripts/instalar-docker.sh"
+        }
+    ]
+}
