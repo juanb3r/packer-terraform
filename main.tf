@@ -3,10 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "tf_instance_test" {
-    ami           = "ami-0cb5016c1d61b38b4"
-    instance_type = "t2.micro"
-    tags = {
-        Name = "tf-practica"
-        Enviroment = "dev"
-    }
+    ami = var.ami_id
+    instance_type = var.instance_type
+    tags = var.tags
 }
