@@ -24,7 +24,7 @@
         {
             "type": "file",
             "source": "./scripts/packer-key.pub",
-            "destination": "~/.ssh"
+            "destination": "~/.ssh/"
         },
         {
             "type": "shell",
