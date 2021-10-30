@@ -11,3 +11,12 @@ variable "instance_type" {
 variable "tags" {
     type = map
 }
+
+variable "sg_name" {
+    default = "sg_name"
+    description = "Nombre del Security Group"  
+}
+
+variable "ingress_rules" {
+  
+}
