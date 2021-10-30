@@ -18,11 +18,10 @@ variable "sg_name" {
 }
 
 variable "ingress_rules" {
-  
 }
 
 variable "bucket_name" {
-  default = "backend-terraform-juanb3r"
+    default = "backend-terraform-juanb3r"
 }
 
 variable "acl" {
