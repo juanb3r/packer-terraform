@@ -25,5 +25,5 @@ ingress_rules = [
         cidr_blocks: ["0.0.0.0/0"]
     }
 ]
-bucket_name = "backend-terraform-juanb3r"
+bucket_name = "backend-terraform-juanb3r-01"
 acl="private"

@@ -42,9 +42,17 @@ resource "aws_instance" "tf_instance_test" {
     instance_type = var.instance_type
     tags = var.tags
     security_groups = ["${aws_security_group.ssh_connection.name}"]
+    provisioner "remote-exec" {
+        connection {
+            type = "ssh"
+            user = "ubuntu"
+            private_key = file("~/.ssh/packer-key")
+            host = self.public_ip
+        }
+    }
 }
 
-resource "aws_kms_key" "a" {
+resource "aws_kms_key" "backend_key" {
     description             = "This key is used to encrypt terraform state file"
     deletion_window_in_days = 10
 }
