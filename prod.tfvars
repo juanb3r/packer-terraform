@@ -23,6 +23,12 @@ ingress_rules = [
         to_port: 5000,
         protocol: "tcp",
         cidr_blocks: ["0.0.0.0/0"]
+    },
+    {
+        from_port: 8000,
+        to_port: 8000,
+        protocol: "tcp",
+        cidr_blocks: ["0.0.0.0/0"]
     }
 ]
 bucket_name = "backend-terraform-juanb3r-01"

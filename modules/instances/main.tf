@@ -50,6 +50,10 @@ resource "aws_instance" "tf_instance_test" {
             host = self.public_ip
         }
     }
+    inline = [
+        "sudo apt install docker.io",
+        "docker run -it -dp 8000:8000 --name fasti juanb3r/fastapi-multi"
+        ]
 }
 
 resource "aws_kms_key" "backend_key" {
