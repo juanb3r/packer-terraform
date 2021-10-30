@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "app-terraform-test" {
-    source = "./modules/instances/"
+    source = "github.com/juanb3r/terraform-modules/instances"
     ami_id = var.ami_id
     instance_type = var.instance_type
     tags = var.tags

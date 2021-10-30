@@ -1,6 +1,6 @@
 terraform {
     backend "s3" {
-        bucket = "backend-terraform-juanb3r"
+        bucket = "backend-terraform-juanb3r-1"
         key    = "dev-encrypt"
         region = "us-east-1"
         encrypt = true
