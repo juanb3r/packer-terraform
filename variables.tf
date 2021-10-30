@@ -9,7 +9,7 @@ variable "instance_type" {
 }
 
 variable "tags" {
-    type = map
+    default = {environment = "Dev", CreatedBy = "terraform"}
 }
 
 variable "sg_name" {
@@ -19,4 +19,12 @@ variable "sg_name" {
 
 variable "ingress_rules" {
   
+}
+
+variable "bucket_name" {
+  default = "backend-terraform-juanb3r"
+}
+
+variable "acl" {
+    default = "private"
 }

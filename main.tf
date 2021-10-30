@@ -43,3 +43,9 @@ resource "aws_instance" "tf_instance_test" {
     tags = var.tags
     security_groups = ["${aws_security_group.ssh_connection.name}"]
 }
+
+resource "aws_s3_bucket" "tf_backend" {
+    bucket = var.bucket_name
+    acl = var.acl
+    tags = var.tags
+}
